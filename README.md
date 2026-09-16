@@ -24,7 +24,7 @@ All data in this project is synthetically generated to simulate a live banking e
 
 The graph below is the actual table-level lineage produced by the Lakeflow Declarative Pipeline — showing how each source flows through bronze → silver → gold, and where the alert tables fan out to the email notifiers.
 
-![FinGuard Pipeline Lineage](pipeline_lineage.svg)
+![FinGuard Pipeline Lineage](https://github.com/Ayush-2024/Finguard-Realtime-Fraud-Pipeline/blob/main/Pipeline%20Lineage%20(Databricks%20Lakeflow%20DAG).jpg?raw=true)
 
 ---
 
