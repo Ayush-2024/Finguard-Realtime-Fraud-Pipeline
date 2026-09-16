@@ -18,7 +18,7 @@ All data in this project is synthetically generated to simulate a live banking e
 
 ## 🏗️ Architecture
 
-![FinGuard Architecture](architecture.svg)
+![FinGuard Architecture](https://github.com/Ayush-2024/Finguard-Realtime-Fraud-Pipeline/blob/main/Finguard_Project_Architecture.jpg?raw=true)
 
 ```mermaid
 flowchart LR
