@@ -20,61 +20,6 @@ All data in this project is synthetically generated to simulate a live banking e
 
 ![FinGuard Architecture](https://github.com/Ayush-2024/Finguard-Realtime-Fraud-Pipeline/blob/main/Finguard_Project_Architecture.jpg?raw=true)
 
-```mermaid
-flowchart LR
-    subgraph Sources
-        K[Confluent Kafka credit_card_transactions]
-        W[Fraud Watchlist JSON generator]
-        C[PostgreSQL Customer Data]
-    end
-
-    subgraph Bronze["🥉 Bronze Layer"]
-        B1[finguard_bronze_transactions]
-        B2[finguard.bronze.fraud_watchlist]
-        B3[finguard.bronze.customers]
-    end
-
-    subgraph Silver["🥈 Silver Layer"]
-        S1[finguard_silver_transactions]
-        S2[finguard.silver.fraud_watchlist]
-        S3[finguard.silver.customers DQ enforced]
-    end
-
-    subgraph Gold["🥇 Gold Layer"]
-        G1[fraud_card_alert]
-        G2[high_value_transactions_alert]
-        G3[transaction_count_by_minute]
-        G4[transaction_count_by_minute_sliding_window]
-    end
-
-    subgraph Alerting
-        E1[Fraud Alert Email Notifier]
-        E2[High-Value Alert Email Notifier]
-    end
-
-    subgraph Analytics
-        D[📊 AI/BI Dashboard]
-        GN[🤖 Genie Space]
-    end
-
-    K --> B1 --> S1
-    W --> B2 --> S2
-    C --> B3 --> S3
-
-    S1 & S2 & S3 --> G1
-    S1 & S3 --> G2
-    S1 --> G3
-    S1 --> G4
-
-    G1 --> E1
-    G2 --> E2
-
-    G1 & G2 & G3 & G4 --> D
-    G1 & G2 & G3 & G4 --> GN
-```
-
----
-
 ## 🔗 Pipeline Lineage (Databricks Lakeflow DAG)
 
 The graph below is the actual table-level lineage produced by the Lakeflow Declarative Pipeline — showing how each source flows through bronze → silver → gold, and where the alert tables fan out to the email notifiers.
