@@ -92,9 +92,3 @@ All credentials (Kafka API keys, SMTP app passwords) are managed via **Databrick
 - 📬 **Production-style alerting** — polished, templated HTML emails, not just log lines.
 - 📈 **Self-serve analytics** — dashboard + Genie Space so non-technical stakeholders can explore the data themselves.
 
----
-
-## 👤 Author
-
-**Ayush Linghwal**
-Data/Analyst enthusiast | SQL · Python · PySpark · Power BI · Databricks
